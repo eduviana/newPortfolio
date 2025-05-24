@@ -1,0 +1,106 @@
+.navigation-wrapper {
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  padding: 14px 0px 20px 0px;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #ea580c;
+}
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ea580c;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  fill: whitesmoke;
+}
+
+.arrow--left {
+  left: 0px;
+}
+
+.arrow--right {
+  right: 0px;
+}
+
+.arrow--disabled {
+  fill: #d4d4d4;
+  cursor: not-allowed;
+}
+
+.arrow--disabled .arrow-icon {
+  fill: #3b3737;
+}
+
+@media (min-width: 768px) {
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .arrow-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .arrow--left {
+    left: 34px;
+  }
+
+  .arrow--right {
+    right: 34px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrow-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .arrow--left {
+    left: 0px;
+  }
+
+  .arrow--right {
+    right: 0px;
+  }
+}
