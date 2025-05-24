@@ -21,44 +21,35 @@ export default function Slider({ images }: SliderProps) {
     },
   });
 
+
   return (
     <>
-      <div className="navigation-wrapper border-2 border-brand-borderLight rounded-sm">
+      <div className="navigation-wrapper ">
         <div ref={sliderRef} className="keen-slider">
           {images.map((src, index) => (
             <div key={index} className="keen-slider__slide">
-              <div className="relative w-full aspect-[4/3] md:max-h-[540px] lg:max-h-[640px] xl:max-h-[740px] mx-auto">
+              {/* <div className="relative w-full aspect-[4/3] md:max-h-[540px] lg:max-h-[640px] xl:max-h-[740px] mx-auto">
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
                   fill
                   sizes="(min-width: 1440px) 1152px, (min-width: 1024px) 922px, (min-width: 768px) 707px, 366px"
                 />
+              </div> */}
+               <div className="">
+                <Image
+                  src={src}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full lg:h-[560px] xl:h-[600px] object-scale-down border-2 border-brand-borderLight rounded-sm"
+                  width={1200}
+                  height={740}
+                  sizes="(min-width: 1440px) 1152px, (min-width: 1024px) 922px, (min-width: 768px) 707px, 366px"
+                />
               </div>
             </div>
           ))}
         </div>
-        {/* {loaded && instanceRef.current && (
-          <>
-            <Arrow
-              left
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
-              disabled={currentSlide === 0}
-            />
-
-            <Arrow
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
-              disabled={
-                currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
-              }
-            />
-          </>
-        )} */}
+       
       </div>
       {loaded && instanceRef.current && (
         <div className="dots">
@@ -81,30 +72,30 @@ export default function Slider({ images }: SliderProps) {
   );
 }
 
-function Arrow(props: {
-  disabled: boolean;
-  left?: boolean;
-  onClick: (e: any) => void;
-}) {
-  const disabled = props.disabled ? " arrow--disabled" : "";
-  return (
-    <div
-      onClick={props.onClick}
-      className={`arrow ${
-        props.left ? "arrow--left" : "arrow--right"
-      } ${disabled}`}
-    >
-      <svg
-        className="arrow-icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        {props.left ? (
-          <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-        ) : (
-          <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-        )}
-      </svg>
-    </div>
-  );
-}
+// function Arrow(props: {
+//   disabled: boolean;
+//   left?: boolean;
+//   onClick: (e: any) => void;
+// }) {
+//   const disabled = props.disabled ? " arrow--disabled" : "";
+//   return (
+//     <div
+//       onClick={props.onClick}
+//       className={`arrow ${
+//         props.left ? "arrow--left" : "arrow--right"
+//       } ${disabled}`}
+//     >
+//       <svg
+//         className="arrow-icon"
+//         xmlns="http://www.w3.org/2000/svg"
+//         viewBox="0 0 24 24"
+//       >
+//         {props.left ? (
+//           <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+//         ) : (
+//           <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+//         )}
+//       </svg>
+//     </div>
+//   );
+// }
