@@ -1,19 +1,42 @@
 export const projects = [
   {
+    id: 26,
+    title: "Hard360",
+    slug: "hard360",
+    liveSiteUrl: "https://hard360.vercel.app",
+    githubUrl: "https://github.com/eduviana/hard360",
+    desc: "Sitio web para una tienda de informática",
+    explanation:
+      "Este proyecto me acompaña desde mis inicios como desarrollador frontend. Sin embargo, muchos de mis proyectos, incluyendo este, requieren un backend para funcionar, el cual también desarrollo yo mismo./n/n Esta es la tercera versión de este sitio web. La primera fue desarrollada con React y Strapi como CMS. En ese momento opté por un servicio de hosting gratuito para el backend, que eventualmente dejó de funcionar. Eso me llevó a rehacer el proyecto, no solo para solucionar ese problema, sino también porque al releer el código, noté cuánto había mejorado como desarrollador. Noté que con los conocimientos que tenía podía hacer algo más sólido y profesional./n/n En la segunda versión utilicé el framework Remix y una base de datos MySQL. El resultado fue mucho mejor en términos de estructura, buenas prácticas y calidad de código. Sin embargo, una vez más, el servicio gratuito de hosting para la base de datos dejó de estar disponible, dejando la página inactiva./n/nFue al hacer una actualización de mi portfolio que noté que esta versión ya no estaba online. Al revisar el código, vi que podía mejorar aún más la implementación, especialmente en términos de desacoplamiento y mantenimiento. Decidí entonces rehacer el proyecto completamente desde cero, esta vez utilizando Next.js./n/nPara evitar los problemas recurrentes con el hosting gratuito de la base de datos, opté por una solución distinta: usar archivos .ts como fuente de datos. Soy plenamente consciente de que esto no es una solución escalable ni adecuada para un proyecto en producción, pero en este caso específico donde el objetivo principal es demostrar mis habilidades en frontend me pareció una opción práctica y sostenible.",
+    technologies: ["next", "tailwind"],
+    categories: ["Nextjs"],
+    feedback:
+      "En este proyecto consolidé y apliqué muchas prácticas modernas del desarrollo frontend con Next.js. Pude experimentar de lleno con el SSR (Server-Side Rendering), lo cual me permitió entregar al cliente páginas ya renderizadas desde el servidor, optimizando así la carga inicial y reduciendo el trabajo en el dispositivo del usuario./n/nPara almacenar los datos de productos opté por usar archivos .ts en lugar de una base de datos externa, lo cual me evitó depender de servicios pagos o inestables. Esta decisión fue estratégica: aunque no escalable, me permitió centrarme en mostrar mis habilidades de frontend sin comprometer la operatividad de la página/n/n.Implementé un sistema de rutas dinámicas con app/[...slug]/page.tsx que resuelve si debe renderizarse una vista de categoría o una página de detalle, lo cual simplificó y desacopló enormemente el enrutado del proyecto.También diseñé un sistema de filtros dinámico que cambia según la categoría y subcategoría seleccionadas. Esto se logró gracias a una estructura tipada con TypeScript, mapeando valores y filtros válidos por cada sección, y usando un context global que centraliza lógica como ordenamiento y paginación.Por cada subcategoría desarrollé un sistema de especificaciones (specs) altamente adaptable. Cada una cuenta con su propio tipo y vista personalizada, lo que me permitió renderizar componentes especializados según el tipo de producto, todo gestionado desde un único specsComponentMap./n/nOtro punto clave fue el manejo del estado global del carrito mediante Context API, así como el formateo de precios almacenados en centavos, transformados dinámicamente a pesos argentinos para su correcta visualización./n/nEn resumen, este proyecto me permitió mejorar tanto la estructura del código como las prácticas de diseño de datos, tipado estricto, optimización del renderizado y organización de componentes reutilizables en un entorno realista.",
+    image:
+      "/projects/personales/hard360/hard360-1.webp",
+    images: [
+      "/projects/personales/hard360/hard360-1.webp",
+      "/projects/personales/hard360/hard360-2.webp",
+      "/projects/personales/hard360/hard360-3.webp",
+      "/projects/personales/hard360/hard360-4.webp",
+      "/projects/personales/hard360/hard360-5.webp",
+      "/projects/personales/hard360/hard360-6.webp",
+      "/projects/personales/hard360/hard360-7.webp",
+    ],
+  },
+  {
     id: 25,
     title: "Vivarium",
     slug: "vivarium",
     liveSiteUrl: "",
     githubUrl: "",
-    source: "Trabajo autónomo",
     desc: "Sitio web para un vivero con panel administrativo y Mercadopago integrado.",
     explanation:
       "Este proyecto consiste en el desarrollo de un sitio web para un vivero, solicitado por un cliente que necesitaba contar con una plataforma propia para exhibir y gestionar sus productos. El objetivo principal era permitirle publicar, editar y eliminar productos de forma sencilla a través de un panel administrativo, al cual se accede mediante una página de login con validación de usuario./n/n Uno de los requerimientos específicos fue incluir en la página principal una sección destacada bajo el título “Productos destacados”. Esta sección permite al cliente seleccionar, desde el listado de productos ya cargados en el sistema, aquellos que desea resaltar en la home, justo debajo del hero. De esta manera, puede promocionar fácilmente los artículos que más le interesa vender en cada momento./n/n Inicialmente, el sitio contaba con la integración de MercadoPago para concretar ventas directamente desde la web. Sin embargo, debido a que el modelo de negocio actual del cliente funciona bajo demanda, surgió el riesgo de que se efectúen compras de productos no disponibles. Mientras trabajamos en una solución que permita automatizar y asegurar el stock disponible, la funcionalidad de pago fue temporalmente deshabilitada. En su lugar, se implementó un botón de “Consultar” que redirige al WhatsApp del vivero, facilitando el contacto directo entre cliente y comprador./n/n El sitio está desarrollado con Next.js, utilizando CSS nativo para los estilos, NextAuth para la autenticación de usuarios y MySQL como base de datos. Las imágenes de los productos se alojan en Cloudinary, lo que permite una gestión eficiente y optimizada del contenido multimedia.",
-    level: "intermediate",
     technologies: ["next", "tailwind", "mongo"],
     categories: ["Freelance", "Nextjs", "Fullstack"],
     feedback:
-      "Al desarrollar este proyecto, aprendí e incorporé varias funcionalidades que enriquecieron mi experiencia como desarrollador. Uno de los principales desafíos fue la creación de un menú de navegación dinámico, cuyas categorías se construyen a partir de los datos almacenados en la base de datos. Esto permite que, al agregar una nueva categoría, esta se muestre automáticamente en el menú tras recargar la página./n/n El menú cuenta con tres niveles jerárquicos, lo que requirió diseñar una función que identificara correctamente el nivel de cada categoría. Las categorías de primer nivel no tienen padres pero sí pueden tener hijos; las de segundo nivel tienen tanto padres como hijos; y las de tercer nivel tienen dos niveles de padres pero no poseen hijos. Esta lógica me permitió estructurar el menú de manera eficiente y escalable./n/n También aprendí a integrar MercadoPago, creando la preference que se envía al sistema con la información del pedido, y a implementar un webhook que permite recibir respuestas del servicio para mostrar mensajes de éxito o error según el resultado de la transacción./n/n Por último, incorporé el botón de carga de imágenes de Cloudinary, lo que facilitó al cliente subir y gestionar imágenes directamente desde la interfaz del panel administrativo, mejorando tanto la experiencia de usuario como el flujo de gestión de contenido.",
+      "Al desarrollar este proyecto aprendí e incorporé varias funcionalidades que enriquecieron mi experiencia como desarrollador. Uno de los principales desafíos fue la creación de un menú de navegación dinámico, cuyas categorías se construyen a partir de los datos almacenados en la base de datos. Esto permite que, al agregar una nueva categoría, esta se muestre automáticamente en el menú tras recargar la página./n/n El menú cuenta con tres niveles jerárquicos, lo que requirió diseñar una función que identificara correctamente el nivel de cada categoría. Las categorías de primer nivel no tienen padres pero sí pueden tener hijos; las de segundo nivel tienen tanto padres como hijos; y las de tercer nivel tienen dos niveles de padres pero no poseen hijos. Esta lógica me permitió estructurar el menú de manera eficiente y escalable./n/n También aprendí a integrar MercadoPago, creando la preference que se envía al sistema con la información del pedido, y a implementar un webhook que permite recibir respuestas del servicio para mostrar mensajes de éxito o error según el resultado de la transacción./n/n Por último, incorporé el botón de carga de imágenes de Cloudinary, lo que facilitó al cliente subir y gestionar imágenes directamente desde la interfaz del panel administrativo, mejorando tanto la experiencia de usuario como el flujo de gestión de contenido.",
     image: "/projects/fullstack/vivarium/vivarium-1.webp",
     images: [
       "/projects/fullstack/vivarium/vivarium-1.webp",
@@ -27,16 +50,35 @@ export const projects = [
     ],
   },
   {
+    id: 24,
+    title: "Linktree Clone",
+    slug: "linktree-clone",
+    liveSiteUrl: "https://linktree-clone-gray.vercel.app/",
+    githubUrl: "https://github.com/eduviana/linktree-clone",
+    desc: "Clon moderno y personalizable de Linktree para centralizar enlaces sociales y profesionales con diseño minimalista.",
+    explanation:
+      "Plataforma full-stack que permite a los usuarios crear perfiles personalizados con enlaces a redes sociales, portafolios y proyectos destacados. Desarrollada con Next.js para aprovechar renderizado estático y optimización SEO, integra Clerk para autenticación segura con multi-factor y gestión de sesiones, y shadcn/ui para construir componentes accesibles y estilizados con sistema de temas./n/n El backend utiliza Prisma como ORM para interactuar con una base de datos PostgreSQL, permitiendo escalabilidad y consultas eficientes. Los perfiles se gestionan dinámicamente a través de un CMS personalizado (no CMS externo), donde los usuarios pueden actualizar su biografía, enlaces y preferencias de tema (light/dark mode) sin modificar el código. El diseño prioriza performance: animaciones CSS nativas para transiciones suaves, carga progresiva de imágenes optimizadas con <Image> de Next.js, y un 100% en accesibilidad WCAG gracias a los componentes base de shadcn.",
+    technologies: ["next", "tailwind", "clerk", "prisma"],
+    categories: ["Nextjs", "Prueba Técnica"],
+    feedback:
+      "Realizando este curso, lo más valioso que me llevo es la metodología utilizada para organizar la estructura de archivos y carpetas./n/n Esta metodología se basa en crear carpetas con la sintaxis (nombre de carpeta) dentro del directorio app. Al hacer esto, dichas carpetas no son reconocidas como páginas, sino como una forma de agruparlas./n/n Dentro de cada una de estas carpetas, se crea una carpeta components, donde se organizan los componentes exclusivos de esa sección o funcionalidad. Además, cada componente tiene su propia carpeta, que contiene:/n/n - Un archivo .tsx para el componente./n - Un archivo types.ts para el tipado de datos./n - Un archivo form.ts si se trata de un formulario./n - Un archivo data.ts para información estática si es necesario./n/n También se crea un archivo index.ts en la carpeta components para exportar todos los componentes que contiene. Dentro de cada componente, se sigue la misma lógica, creando un index.ts que lo exporta./n/n Gracias a esta estructura, las rutas de importación son más cortas y fáciles de leer, mejorando la organización y mantenibilidad del código.",
+    image: "/projects/fullstack/linktreeclone/linktree-2.webp",
+    images: [
+      "/projects/fullstack/linktreeclone/linktree-1.webp",
+      "/projects/fullstack/linktreeclone/linktree-2.webp",
+      "/projects/fullstack/linktreeclone/linktree-3.webp",
+      "/projects/fullstack/linktreeclone/linktree-4.webp",
+    ],
+  },
+  {
     id: 23,
     title: "Apex Sporote",
     slug: "apex-soporte",
     liveSiteUrl: "",
     githubUrl: "",
-    source: "Trabajo autónomo",
     desc: "Sitio web que permite gestionar reclamos de los usuarios y visualizar la información en tablas y gráficos.",
     explanation:
       "Desarrollar una plataforma que permita a los operarios de un call center registrar y consultar incidencias a través de un formulario interactivo y una tabla que muestra los reportes almacenados en MongoDB./n/n Por otro lado, incorpora un segundo formulario y una tabla especializada para la gestión de seguimientos y adelantos, diseñados específicamente para los supervisores. Además, la aplicación ofrece gráficos dinámicos que facilitan la visualización de estadísticas relevantes, y su arquitectura optimizada garantiza un rendimiento excepcional mediante un renderizado eficiente y una experiencia de usuario fluida",
-    level: "intermediate",
     technologies: ["next", "tailwind", "mongo"],
     categories: ["Freelance", "Nextjs", "Fullstack"],
     feedback:
@@ -56,11 +98,9 @@ export const projects = [
     slug: "kass-tienda",
     liveSiteUrl: "https://kass-tienda.vercel.app/",
     githubUrl: "https://github.com/eduviana/kassTienda",
-    source: "Personal",
     desc: "Sitio web para una tienda de accesorios y productos tecnológicos con pasarela de pagos.",
     explanation:
       "El dueño de un negocio de articulos de tecnología me plantió la necesidad de crear un sitio web en el cual él mismo pueda agregar, modificar y eliminar la información de los productos de las distintas secciones que posee la página./n/n Además me comentó que se siente cómodo trabajando con hojas de cálculo al estilo Excel, por lo que luego de investigar posibles soluciones que satisfagan estos requerimientos, le sugerí realizar la base de datos en una hoja de cálculo de Google utilizando la Api de Googlesheets./n/n El documento cuanta con varias páginas, en donde cada página es una categoría de productos. Mediante esta división logramos que sea más fácil de ubicar un producto y realizar las modificaciones necesarias. El sitio utiliza el servicio de Stripe para lo que respecta a los pagos y también el paquete use-shopping-cart proveído por el mismo servicio para administrar el carrito de compras y la seguridad del mismo.",
-    level: "intermediate",
     technologies: ["next", "tailwind"],
     categories: ["Freelance", "Nextjs", "Fullstack"],
     feedback:
@@ -74,40 +114,16 @@ export const projects = [
       "/projects/fullstack/kassTienda/kass_5.png",
     ],
   },
-  {
-    id: 24,
-    title: "Linktree Clone",
-    slug: "linktree-clone",
-    liveSiteUrl: "https://linktree-clone-gray.vercel.app/",
-    githubUrl: "https://github.com/eduviana/linktree-clone",
-    source: "Youtube",
-    desc: "Clon moderno y personalizable de Linktree para centralizar enlaces sociales y profesionales con diseño minimalista.",
-    explanation:
-      "Plataforma full-stack que permite a los usuarios crear perfiles personalizados con enlaces a redes sociales, portafolios y proyectos destacados. Desarrollada con Next.js para aprovechar renderizado estático y optimización SEO, integra Clerk para autenticación segura con multi-factor y gestión de sesiones, y shadcn/ui para construir componentes accesibles y estilizados con sistema de temas./n/n El backend utiliza Prisma como ORM para interactuar con una base de datos PostgreSQL, permitiendo escalabilidad y consultas eficientes. Los perfiles se gestionan dinámicamente a través de un CMS personalizado (no CMS externo), donde los usuarios pueden actualizar su biografía, enlaces y preferencias de tema (light/dark mode) sin modificar el código. El diseño prioriza performance: animaciones CSS nativas para transiciones suaves, carga progresiva de imágenes optimizadas con <Image> de Next.js, y un 100% en accesibilidad WCAG gracias a los componentes base de shadcn.",
-    level: "intermediate",
-    technologies: ["next", "tailwind", "clerk", "prisma"],
-    categories: ["Nextjs", "Prueba Técnica"],
-    feedback:
-      "Realizando este curso, lo más valioso que me llevo es la metodología utilizada para organizar la estructura de archivos y carpetas./n/n Esta metodología se basa en crear carpetas con la sintaxis (nombre de carpeta) dentro del directorio app. Al hacer esto, dichas carpetas no son reconocidas como páginas, sino como una forma de agruparlas./n/n Dentro de cada una de estas carpetas, se crea una carpeta components, donde se organizan los componentes exclusivos de esa sección o funcionalidad. Además, cada componente tiene su propia carpeta, que contiene:/n/n - Un archivo .tsx para el componente./n - Un archivo types.ts para el tipado de datos./n - Un archivo form.ts si se trata de un formulario./n - Un archivo data.ts para información estática si es necesario./n/n También se crea un archivo index.ts en la carpeta components para exportar todos los componentes que contiene. Dentro de cada componente, se sigue la misma lógica, creando un index.ts que lo exporta./n/n Gracias a esta estructura, las rutas de importación son más cortas y fáciles de leer, mejorando la organización y mantenibilidad del código.",
-    image: "/projects/fullstack/linktreeclone/linktree-2.webp",
-    images: [
-      "/projects/fullstack/linktreeclone/linktree-1.webp",
-      "/projects/fullstack/linktreeclone/linktree-2.webp",
-      "/projects/fullstack/linktreeclone/linktree-3.webp",
-      "/projects/fullstack/linktreeclone/linktree-4.webp",
-    ],
-  },
+
   {
     id: 21,
     title: "Movix",
     slug: "movix",
     liveSiteUrl: "https://movix-nu-six.vercel.app/",
     githubUrl: "https://github.com/eduviana/movix",
-    source: "YouTube",
     desc: "Página web de películas y series que utiliza la API gratuita 'The Movie Database'. ",
     explanation:
       "El objetivo de este proyecto es crear un sitio en el cual se pueda consumir contenido tanto de películas como series consumiendo una API. La idea central es utilizar algun manejador de estados y lograr un diseño agradable y moderno. El sitio debe ser responsive y debe estar componetizado para reutilizar el código.",
-    level: "advanced",
     technologies: ["react", "sass", "redux"],
     categories: ["React"],
     feedback:
@@ -125,11 +141,9 @@ export const projects = [
     slug: "gamehub",
     liveSiteUrl: "",
     githubUrl: "",
-    source: "Personal",
     desc: "Plataforma que permite visualizar y realizar transmisiones en vivo.",
     explanation:
       "Este proyecto fue desarrollado siguiendo un curso proporcionado por el instructor CodeWithAntonio en YouTube, con el propósito de crear una plataforma similar a Twitch que permita a los usuarios actuar como espectadores y/o streamers./n/n Para gestionar la autenticación de usuarios a través de Google, implementamos el servicio de Clerk, aprovechando un webhook para registrar la información del usuario en nuestra base de datos. Además, empleamos el paquete Livekit para construir todos los elementos relacionados con los streams, salas de transmisión, y el chat./n/n En el contexto de un streamer, una vez que se ha creado una cuenta o iniciado sesión, se puede establecer una conexión que proporcionará la información necesaria para integrarla con programas compatibles, como OBS Studio. El streamer cuenta con la capacidad de personalizar tanto la información del stream como su perfil de usuario. Además, se le brinda la opción de configurar el chat de su propio stream, permitiéndole activar o desactivar funciones como desactivar el chat, habilitar el modo lento y el modo solo suscriptores. Este nivel de flexibilidad y control permite a los streamers adaptar la experiencia según sus preferencias y necesidades específicas./n/n Este proyecto, a diferencia del resto de proyectos de mi portafolio, no posee un link para visitar el sitio online debido a que utiliza servicios de pago para funcionar, por lo que solo funciona en desarrollo. Por lo tanto decidí subir un video demostrativo.",
-    level: "advanced",
     technologies: ["next", "shadcn"],
     categories: ["Nextjs"],
     feedback:
@@ -144,11 +158,9 @@ export const projects = [
     slug: "flair-store",
     liveSiteUrl: "https://sanity-ecommerce-orcin.vercel.app/",
     githubUrl: "https://github.com/eduviana/Sanity-Ecommerce",
-    source: "YouTube",
     desc: "Tienda online de venta de indumentaria realizado con Sanity y Next 13.",
     explanation:
       "El objetivo de este proyecto es crear un sitio web de venta de indumentaria con Sanity y Next 13. Debe de tener dos tipos de filtros, el primero con las propiedades de los productos tales como categorías, tamaño, color y el segundo para poder ordenarlos por precio de mayor a menor, de menor a mayor y también por más nuevos. Debe de tener dark mode y carrito de compras y un método de pago funcional. Es importante que esté desarrollado con Typescript y debe ser responsive.",
-    level: "advanced",
     technologies: ["next", "tailwind", "sanity"],
     categories: ["Nextjs"],
     feedback:
@@ -169,11 +181,9 @@ export const projects = [
     slug: "prueba-tecnica-libros",
     liveSiteUrl: "https://challenge-books-midudev.vercel.app/",
     githubUrl: "https://github.com/eduviana/Challenge-Books-Midudev",
-    source: "Midudev",
     desc: "Challenge extraído del creador de contenido Midudev que consiste en una página web de una editorial de libros.",
     explanation:
       "Somos un sello editorial de libros multinacional. Queremos ofrecer a nuestro público una forma de ver nuestro catálogo y poder guardar los libros que les interesan en una lista de lectura. Para ello, queremos desarrollar una aplicación web que permita a los usuarios ver los libros disponibles y crear una lista de lectura./n/nTen en cuenta que:/n/n - no sabemos si el framework que utilicemos ahora será el definitivo, pero querremos reutilizar el máximo de código posible/n/n - la aplicación debe ser fácil de usar y agradable a la vista/n/n - tenemos un 80% de usuarios que vienen de navegadores de escritorio/n/n - usa el archivo books.json para obtener los datos de los libros. Puedes añadir más libros si lo deseas, siempre y cuando siga la misma estructura.",
-    level: "intermediate",
     technologies: ["react", "sass"],
     categories: ["Prueba Técnica"],
     feedback:
@@ -191,11 +201,9 @@ export const projects = [
     slug: "admin-ui-recharts",
     liveSiteUrl: "https://react-dashboard-recharts-nff7.vercel.app/",
     githubUrl: "https://github.com/eduviana/React-Dashboard-Recharts",
-    source: "YouTube",
     desc: "Página web que permite visualizar información tanto en formato de gráficos como de tablas.",
     explanation:
       "Construir un panel de administración con Vite utilizando react-router-dom para las rutas, Material Ui y Sass para la interfaz gráfica y la libreria Recharts para los gráficos. El objetivo de este proyecto es familiarizarce con estas librerias y principalmente aprender a utilizar el componente data-grid de Material.",
-    level: "advanced",
     technologies: ["react", "material", "sass"],
     categories: ["React"],
     feedback:
@@ -213,11 +221,9 @@ export const projects = [
   //   title: "Car Showcase",
   //   liveSiteUrl: "https://car-showcase-seven-nu.vercel.app/",
   //   githubUrl: "https://github.com/eduviana/Car-Showcase",
-  //   source: "YouTube",
   //   desc: "Página web de venta e información de vehículos. Se utilizan dos endpoints distintos para mostrar la información.  ",
   //   explanation:
   //     "Esta página es el resultado de un curso/tutorial extraído de YouTube del canal de Javascript Mastery, el cual considero que tiene contenido de buena calidad y valiosas explicaciones a diversos temas que no son fáciles de entender e interiorizar./n/n El objetivo de esta página web es brindar una interfaz vistoza e interactiva que permita la búsqueda de automóviles. Para ello utilizamos dos endpoints, el primero proveniente de RapidApi, que nos provee de toda la información de los vehículos y el segundo endpoint lo utilizamos para mostrar información del vehículo seleccionado a través de un modal, en el cual se puede visualizar tres imágenes del mismo desde distintos ángulos de visión.",
-  //   level: "advanced",
   //   technologies: ["next", "ts", "tailwind"],
   //   feedback:
   //     "Realizar este tutorial me enseñó muchas cosas, desde cómo trabajar con Typescript, definiendo los types para cada pieza de código, como estructurar el projecto a nivel de carpetas y la utilización de la carpeta app de next 13 que funciona como router. Hay un montón de otras funcionalidades que me fueron de utilidad, como los filtros de búsqueda, animaciones y responsive design. ",
@@ -234,11 +240,9 @@ export const projects = [
     slug: "evo-gym",
     liveSiteUrl: "https://gym-typescript-one.vercel.app/",
     githubUrl: "https://github.com/eduviana/gym-typescript",
-    source: "YouTube",
     desc: "Página web con temática fitness. Simple, elegante y efectiva. Buen proyecto para dar mis primeros pasos con Typescript.",
     explanation:
       "Este sitio web fué desarrollado siguiendo un curso de YouTube cuyo autor es EdRoh. Es un ejercicio perfecto para asentar las bases tanto de diseño como de Typescript, definiendo los tipos e interfaces utilizadas por los componentes. ",
-    level: "junior",
     technologies: ["react", "ts", "tailwind"],
     categories: ["React"],
     feedback:
@@ -257,11 +261,9 @@ export const projects = [
     slug: "liverr",
     liveSiteUrl: "https://liverr.vercel.app/",
     githubUrl: "https://github.com/eduviana/liverr",
-    source: "YouTube",
     desc: "Página web inspirada en Fiverr. Este sitio tiene un nivel de complejidad mayor tanto a nivel de diseño como funcionalidad.",
     explanation:
       "Esta página la desarrollé siguiendo el curso de Javascript Mastery en YouTube. La idea de este proyecto es realizar una página con los mismos objetivos que la página oficial Fiverr, cuya finalidad es ofrecer un mercado en línea para servicios independientes. Es una plataforma para que los trabajadores autónomos ofrezcan servicios a clientes de todo el mundo. ",
-    level: "advanced",
     technologies: ["react", "sass"],
     categories: ["React"],
     feedback:
@@ -280,11 +282,9 @@ export const projects = [
   //   slug: "hardware-360",
   //   liveSiteUrl: "https://hardware360-remix.vercel.app/",
   //   githubUrl: "https://github.com/eduviana/hardware360-remix",
-  //   source: "Personal",
   //   desc: "Página web de venta de hardware e insumos informáticos.",
   //   explanation:
   //     "Esta página la desarrollé con Remix.js en el frontend y Strapi en el backend. La idea fué aprender ambas tecnologías y realizar un proyecto fullstack. ",
-  //   level: "intermediate",
   //   technologies: ["remix", "bootstrap", "strapi"],
   //   feedback:
   //     "Realizando este proyecto aprendí lo básico de Remix y bootstrap. También me sirvió para aprender Strapi, crear los distintos endpoints, asignar permisos, y a crear los modelos de cada tipo de producto./n/nLa información cargada de cada producto es verídica y las imágenes están alojadas en Cloudinary utilizando un plugin de Strapi. Cuando se clickea un producto, en vez de establecer el id en la url como normalmente hacía, utilicé un slug de Strapi que sustituye dicho id por el nombre del producto que automaticamente extrae del campo título. Esto hace que la url sea más descriptiva y ayude a los motores de Google a indexar mejor la página.",
@@ -302,11 +302,9 @@ export const projects = [
     slug: "fashion-ecommerce",
     liveSiteUrl: "https://www.google.com",
     githubUrl: "https://github.com/eduviana/Fashion-Online-Client",
-    source: "YouTube",
     desc: "Página web de venta de ropa con método de pagos.",
     explanation:
       "Esta página la desarrollé siguiendo un curso de EdRoh en YouTube. El objetivo de este proyecto es proporcionar una página web para la venta de artículos de indumentaria, con un estilo elegante y simple. El frontend está desarrollado con React, Material Ui, Formik y Yup. El backend está construído con strapi y tiene implementado stripe para lo que respecta a pagos.",
-    level: "intermediate",
     technologies: ["react", "material", "strapi", "stripe"],
     categories: ["React", "Fullstack"],
     feedback:
@@ -326,11 +324,9 @@ export const projects = [
     slug: "dashboard",
     liveSiteUrl: "https://react-dashboard-lyart.vercel.app/",
     githubUrl: "https://github.com/eduviana/react-dashboard",
-    source: "YouTube",
     desc: "Panel de administración que incluye diversos tipos de  gráficos, listados y buscadores.",
     explanation:
       "Esta proyecto fué desarrollado siguiendo un curso de EdRoh en YouTube. El objetivo es construir un panel de administración visualmente atractivo y formal en el cual se pueda visualizar distintos tipos de información. En la página principal se muestra un resumen de todas las secciones que hay en el menú, como lo son control de gastos, listado de personas, graficos de barra, circular, de línea y geográfico.",
-    level: "intermediate",
     technologies: ["react", "material", "strapi", "stripe"],
     categories: ["React"],
     feedback:
@@ -355,11 +351,9 @@ export const projects = [
     slug: "easybank-landing-page",
     liveSiteUrl: "https://easybank-landing-page-phi-lyart.vercel.app/",
     githubUrl: "https://github.com/eduviana/Easybank-Landing-Page",
-    source: "FrontendMentor",
     desc: "Desafío que consta en desarrollar una SPA que se asemeje lo más posible al diseño proveído.",
     explanation:
       "El desafió es construir esta página intentado que se parezca lo más posible al diseño proveído. Se puede utilizar cualquier herramienta para lograr el objetivo. La única funcionalidad que requiere Javascript es el menú de navegación para dispositivos móviles, sin embargo también es posible realizar dicha funcionalidad sólo con Css.",
-    level: "intermediate",
     technologies: ["html", "css"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -376,11 +370,9 @@ export const projects = [
     slug: "ecommerce-product-page",
     liveSiteUrl: "https://ecommerce-product-page-rho-seven.vercel.app/",
     githubUrl: "https://github.com/eduviana/Ecommerce-Product-Page",
-    source: "FrontendMentor",
     desc: "Desafío que puso a prueba mis habilidades de Javascript para crear una galería de productos, un modal y una funcionalidad de carrito de compras.",
     explanation:
       "El desafío es construir esta página de comercio electrónico y lograr que se parezca lo más posible al diseño proveído. Se puede utilizar cualquier herramienta que te guste para ayudarte a completar el desafío.",
-    level: "intermediate",
     technologies: ["react", "sass"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -398,11 +390,9 @@ export const projects = [
     slug: "news-home-page",
     liveSiteUrl: "https://news-homepage-main-g8l3jn4bt-eduviana.vercel.app/",
     githubUrl: "https://github.com/eduviana/news-homepage-main",
-    source: "FrontendMentor",
     desc: "Este desafío es una excelente oportunidad para practicar mis habilidades de CSS Grid. ¡Hay muchas decisiones difíciles que tomar y muchas oportunidades de aprendizaje!",
     explanation:
       "El desafió es construir esta página intentado que se parezca lo más posible al diseño proveído. Se puede utilizar cualquier herramienta para lograr el objetivo. La única funcionalidad que requiere Javascript es el menú de navegación para dispositivos móviles, sin embargo también es posible realizar dicha funcionalidad sólo con CSS",
-    level: "junior",
     technologies: ["html", "css", "js"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -418,11 +408,9 @@ export const projects = [
       "https://rest-country-api-with-color-theme-switcher-fupf6x4t2-eduviana.vercel.app/",
     githubUrl:
       "https://github.com/eduviana/Rest-Country-Api-With-Color-Theme-Switcher",
-    source: "FrontendMentor",
     desc: "Challenge para poner a prueba mis skills de Javascript consumiendo una API. ¡Tiene varios detalles a resolver que no se aprecian a simple vista!",
     explanation:
       "El desafío es integrar la API REST de paises para extraer los datos y mostrarlos como indica el diseño. Puedes usar cualquier framework de Javascript que quieras. también tienes control sobre qué paquete utilizar para realizar las solicitudes HTTP.",
-    level: "advanced",
     technologies: ["react", "sass"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -442,11 +430,9 @@ export const projects = [
     liveSiteUrl:
       "https://testimonial-grid-section-main-jnauizfda-eduviana.vercel.app/",
     githubUrl: "https://github.com/eduviana/testimonial-grid-section-main",
-    source: "FrontendMentor",
     desc: "Este desafío es una práctica perfecta para cualquiera que quiera probar sus habilidades con CSS Grid. Grid es una adición tan poderosa a CSS, ¡así que vale la pena familiarizarse con él!",
     explanation:
       "El desafío es construir esta sección de cuadrícula y lograr que se parezca lo más posible al diseño. Puedes usar cualquier herramienta que te guste para ayudarte a completar el desafío. Entonces, si tienes algo que te gustaría practicar, no dudes en intentarlo. ",
-    level: "junior",
     technologies: ["react", "sass"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -462,11 +448,9 @@ export const projects = [
       "https://filo-dark-theme-landing-page-master-nmeoll70x-eduviana.vercel.app/",
     githubUrl:
       "https://github.com/eduviana/filo-dark-theme-landing-page-master",
-    source: "FrontendMentor",
     desc: "Este challenge tiene desafíos de diseño agradables. Un campo de entrenamiento perfecto para practicar mis habilidades de Flexbox y/o Grid.",
     explanation:
       "El desafío es construir esta página de destino y lograr que se parezca lo más posible al diseño. Puedes usar cualquier herramienta que te guste para ayudarte a completar el desafío.",
-    level: "junior",
     technologies: ["react", "sass"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -485,11 +469,9 @@ export const projects = [
     liveSiteUrl:
       "https://loopstudios-landing-page-main-r8k6s4vrh-eduviana.vercel.app/",
     githubUrl: "https://github.com/eduviana/loopstudios-landing-page-main",
-    source: "FrontendMentor",
     desc: "Este desafío es perfecto si buscas probar tus habilidades con CSS Grid. ¡Incluso sin Grid, este proyecto será divertido para ayudarlo a practicar sus habilidades de diseño!",
     explanation:
       "Su desafío es construir esta página de destino y lograr que se parezca lo más posible al diseño. Se enfoca principalmente en HTML y CSS pero tiene un poquito de Javascript incluido para la alternancia de navegación móvil.",
-    level: "junior",
     technologies: ["react", "sass"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -506,11 +488,9 @@ export const projects = [
     slug: "room-homepage",
     liveSiteUrl: "https://room-homepage-ashy-delta.vercel.app/",
     githubUrl: "https://github.com/eduviana/Room-Homepage",
-    source: "FrontendMentor",
     desc: "Desafío que debe realizarce utilizando CSS Grid para crear la cuadrícula y ubicar los elementos en los dos breakpoints que se indican en los requisitos. ",
     explanation:
       "El desafío consta en construir esta página de inicio de comercio electrónico y lograr que se parezca lo más posible al diseño. La idea es que todos los elementos estén manejados por una Grid, definiendo sus dimensiones en el contenedor padre.",
-    level: "intermediate",
     technologies: ["react", "tailwind"],
     categories: ["Frontend Mentor"],
     feedback:
@@ -524,11 +504,9 @@ export const projects = [
     slug: "game-store",
     liveSiteUrl: "https://game-store-nextjs-api.vercel.app/",
     githubUrl: "https://github.com/eduviana/GameStore-FreeToGame-API",
-    source: "Personal",
     desc: "Maquetación extraída de Figma Community a la que le implementé una API gratuita llamada freetogame para mostrar información dinámica.",
     explanation:
       "Este proyecto surgío revisando los diseños gratituos que la comunidad de Figma comparte en su página, así que seleccioné este y el objetivo era replicarlo lo mas parecido al diseño original, ya que mis anteriores maquetaciones habian sido en base a una foto.",
-    level: "intermediate",
     technologies: ["next", "css"],
     categories: ["Nextjs"],
     feedback:
@@ -550,11 +528,9 @@ export const projects = [
     slug: "youtube-clone",
     liveSiteUrl: "https://ev-YouTube-app.netlify.app/",
     githubUrl: "https://github.com/eduviana/YouTube-app",
-    source: "Personal",
     desc: "Página web inspirada en YouTube con un diseño similar que utiliza la API oficial de YouTube para visualizar los videos y realizar las búsquedas.",
     explanation:
       "La idea de este proyecto es simular un sitio web parecido a YouTube en el que se puede buscar videos en el buscador, filtrar por categorías y mostrar videos relacionados al seleccionado. Utiliza la API oficial de YouTube.",
-    level: "intermediate",
     technologies: ["react", "material"],
     categories: ["React"],
     feedback:

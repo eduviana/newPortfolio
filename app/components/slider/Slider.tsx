@@ -21,38 +21,40 @@ export default function Slider({ images }: SliderProps) {
     },
   });
 
-
   return (
     <>
-      <div className="navigation-wrapper ">
+      {/* <div className="navigation-wrapper w-full max-w-screen-xl mx-auto"> */}
+      <div className="navigation-wrapper w-full mx-auto">
         <div ref={sliderRef} className="keen-slider">
           {images.map((src, index) => (
-            <div key={index} className="keen-slider__slide">
-              {/* <div className="relative w-full aspect-[4/3] md:max-h-[540px] lg:max-h-[640px] xl:max-h-[740px] mx-auto">
+            <div key={index} className="keen-slider__slide flex justify-center">
+              <div
+                className="
+            relative 
+            w-full 
+            max-w-[1200px]
+            aspect-[16/9] 
+            border-2 
+            border-brand-borderLight 
+            rounded-sm 
+            overflow-hidden
+            max-h-[70vh]   // ✅ Limita la altura en pantallas grandes
+          "
+              >
                 <Image
                   src={src}
                   alt={`Slide ${index + 1}`}
                   fill
-                  sizes="(min-width: 1440px) 1152px, (min-width: 1024px) 922px, (min-width: 768px) 707px, 366px"
-                />
-              </div> */}
-               <div className="">
-                <Image
-                  src={src}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full lg:h-[560px] xl:h-[600px] object-scale-down border-2 border-brand-borderLight rounded-sm"
-                  width={1200}
-                  height={740}
-                  sizes="(min-width: 1440px) 1152px, (min-width: 1024px) 922px, (min-width: 768px) 707px, 366px"
+                  className="object-cover object-top"
+                  sizes="(min-width: 1536px) 1200px, (min-width: 1280px) 1000px, (min-width: 1024px) 800px, (min-width: 768px) 600px, 100vw"
                 />
               </div>
             </div>
           ))}
         </div>
-       
       </div>
       {loaded && instanceRef.current && (
-        <div className="dots">
+        <div className="flex items-center justify-center mt-4">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map((idx) => {
@@ -72,30 +74,3 @@ export default function Slider({ images }: SliderProps) {
   );
 }
 
-// function Arrow(props: {
-//   disabled: boolean;
-//   left?: boolean;
-//   onClick: (e: any) => void;
-// }) {
-//   const disabled = props.disabled ? " arrow--disabled" : "";
-//   return (
-//     <div
-//       onClick={props.onClick}
-//       className={`arrow ${
-//         props.left ? "arrow--left" : "arrow--right"
-//       } ${disabled}`}
-//     >
-//       <svg
-//         className="arrow-icon"
-//         xmlns="http://www.w3.org/2000/svg"
-//         viewBox="0 0 24 24"
-//       >
-//         {props.left ? (
-//           <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-//         ) : (
-//           <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-//         )}
-//       </svg>
-//     </div>
-//   );
-// }
