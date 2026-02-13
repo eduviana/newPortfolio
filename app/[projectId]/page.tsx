@@ -40,7 +40,7 @@ export default function ProjectDetailsPage() {
       <div className="w-full">
         <Slider images={images} />
 
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start max-w-[1200px] mx-auto">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start max-w-[1200px] mx-auto mt-4">
           {/* Bloque de tecnologías */}
           <div className="flex flex-col items-center gap-2 md:items-start">
             <h4 className="text-lg font-semibold md:hidden">

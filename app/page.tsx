@@ -5,7 +5,7 @@ import { MyProjects } from "./components/sections/my-projects/MyProjects";
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <Hero />
       <About />
       <MyProjects />

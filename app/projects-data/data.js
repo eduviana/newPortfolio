@@ -1,5 +1,44 @@
 export const projects = [
   {
+    id: 27,
+    title: "Medical Healt",
+    slug: "medical-healt",
+    liveSiteUrl: "https://hard360.vercel.app",
+    githubUrl: "https://github.com/eduviana/hard360",
+    desc: "Sistema web de gestión de turnos - Obra Social",
+    explanation:
+    "El objetivo principal de este proyecto fue diseñar y desarrollar un sistema web de gestión de turnos para una obra social, pensado para uso interno en un entorno controlado, con múltiples tipos de usuarios y reglas de negocio claras./n/nMás allá de resolver el flujo funcional (generación de turnos, llamado en pantalla y gestión administrativa), el desafío estuvo en construir una aplicación con arquitectura escalable y decisiones estructurales conscientes. Busqué salir de proyectos más acotados y enfrentar un sistema que incluyera:/n/n- Autenticación externa y sincronización con base de datos propia./n- Control de acceso basado en roles (RBAC) con jerarquía./n- Reglas de negocio diferenciadas por tipo de usuario./n- Eventos en tiempo real para coordinación entre operadores y pantallas públicas./n- Registro y explotación de métricas operativas./n/nDesde el inicio definí una Modular Feature Architecture, donde cada dominio del negocio (usuarios, turnos, servicios, áreas, farmacia, etc.) vive en su propio módulo autocontenido con UI, lógica, tipos y servicios, mientras que app/ se limita exclusivamente al enrutamiento. Esto permitió escalar la base de código manteniendo claridad estructural y bajo acoplamiento./n/nEn términos de seguridad, implementé un modelo en tres capas:/n/n1) Middleware (proxy.ts) como gatekeeper: autenticación, autorización coarse-grained por prefijo de ruta y redirección inteligente según rol./n2) Private layout para garantizar sesión válida y sincronización consistente con la base de datos./n3) Protección fine-grained en endpoints y server actions, donde cada operación sensible valida explícitamente el rol requerido./n/nEl sistema contempla tres roles (ADMIN, SUPERVISOR, OPERATOR) con jerarquía explícita. Los permisos no se resuelven mediante simples comparaciones de strings, sino mediante un esquema jerárquico que evita duplicación de reglas y mantiene el principio de menor privilegio./n/nEl módulo de turnos incorpora realtime con Pusher, permitiendo que:/n- Los operadores visualicen inmediatamente nuevos turnos en su área./n- El visor público muestre en tiempo real el turno actual y el historial reciente./n- El sistema registre métricas exactas sin depender de refresh manuales./n/nAdemás, el modelado contempló decisiones anticipando evolución futura. Por ejemplo, las áreas “Farmacia General” y “Farmacia Medicamentos” se diseñaron como módulos independientes, aunque hoy compartan estructura similar, para evitar acoplamiento innecesario ante posibles divergencias en reglas de negocio (como validación de recetas médicas).",
+    
+    technologies: ["next", "tailwind", "shadcn", "prisma", "PostgreSQL"],
+    categories: ["Nextjs"],
+    feedback:
+  "Este proyecto fue especialmente formativo porque muchas decisiones no surgieron en abstracto, sino enfrentando problemas reales y refactorizando cuando fue necesario./n/nUno de los aprendizajes más importantes fue comprender que la arquitectura no se diseña completamente desde el inicio, sino que se ajusta cuando el sistema comienza a escalar. Algunas estructuras iniciales funcionaban en pequeña escala, pero empezaban a generar fricción al aumentar la complejidad. Detectar esos puntos y refactorizar hacia módulos más cohesionados fue una parte clave del proceso./n/nEn términos de seguridad, consolidé una visión más madura sobre defensa en profundidad:/n/n- No confiar únicamente en el middleware./n- Proteger endpoints y server actions sensibles./n- Registrar intentos indebidos./n- Centralizar la lógica de autorización./n/nLa separación entre autenticación (Clerk) y autorización (base de datos propia + RBAC) me permitió mantener control total sobre la lógica de negocio y evitar acoplamiento con el proveedor de identidad./n/nTambién profundicé en el uso estratégico de:/n/n- Server Components vs Client Components, priorizando server siempre que fue posible./n- Acceso directo a base de datos desde server components y server actions./n- Endpoints específicos cuando el consumo provenía de client components./n- Servicios nombrados por acción (get/create/update/delete), alineados con un enfoque backend-driven frontend./n/nEl sistema de turnos me permitió trabajar con eventos en tiempo real integrados a reglas de negocio medibles, registrando con precisión:/n/n- Tiempo desde generación hasta llamado./n- Tiempo real de atención (sin penalizar demoras del afiliado)./n- Métricas por operador y por área./n/nDiseñar el flujo de “Llamado → Inicio de atención → Finalización” con separación explícita fue una decisión clave para mantener consistencia estadística y evitar sesgos en los gráficos administrativos./n/nFinalmente, aprendí a tomar decisiones pensando en la evolución del dominio, no solo en el presente del código. Separar módulos similares para evitar acoplamiento prematuro, centralizar permisos con jerarquía y estructurar seeds reproducibles para el entorno de desarrollo fueron decisiones que priorizaron mantenibilidad por sobre rapidez inmediata./n/nEn conjunto, este proyecto marcó un punto de inflexión en mi forma de pensar sistemas: menos enfoque en hacer que funcione y más en diseñar para que evolucione.",
+    image: "/projects/fullstack/medicalHealt/medicalHealt-1.webp",
+    images: [
+      "/projects/fullstack/medicalHealt/medicalHealt-thumbnail.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-2.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-3.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-4.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-5.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-6.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-7.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-8.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-9.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-10.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-11.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-12.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-13.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-14.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-15.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-16.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-17.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-18.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-19.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-20.webp",
+      "/projects/fullstack/medicalHealt/medicalHealt-21.webp",
+    ],
+  },
+  {
     id: 26,
     title: "Hard360",
     slug: "hard360",
@@ -12,8 +51,7 @@ export const projects = [
     categories: ["Nextjs"],
     feedback:
       "En este proyecto consolidé y apliqué muchas prácticas modernas del desarrollo frontend con Next.js. Pude experimentar de lleno con el SSR (Server-Side Rendering), lo cual me permitió entregar al cliente páginas ya renderizadas desde el servidor, optimizando así la carga inicial y reduciendo el trabajo en el dispositivo del usuario./n/nPara almacenar los datos de productos opté por usar archivos .ts en lugar de una base de datos externa, lo cual me evitó depender de servicios pagos o inestables. Esta decisión fue estratégica: aunque no escalable, me permitió centrarme en mostrar mis habilidades de frontend sin comprometer la operatividad de la página/n/n.Implementé un sistema de rutas dinámicas con app/[...slug]/page.tsx que resuelve si debe renderizarse una vista de categoría o una página de detalle, lo cual simplificó y desacopló enormemente el enrutado del proyecto.También diseñé un sistema de filtros dinámico que cambia según la categoría y subcategoría seleccionadas. Esto se logró gracias a una estructura tipada con TypeScript, mapeando valores y filtros válidos por cada sección, y usando un context global que centraliza lógica como ordenamiento y paginación.Por cada subcategoría desarrollé un sistema de especificaciones (specs) altamente adaptable. Cada una cuenta con su propio tipo y vista personalizada, lo que me permitió renderizar componentes especializados según el tipo de producto, todo gestionado desde un único specsComponentMap./n/nOtro punto clave fue el manejo del estado global del carrito mediante Context API, así como el formateo de precios almacenados en centavos, transformados dinámicamente a pesos argentinos para su correcta visualización./n/nEn resumen, este proyecto me permitió mejorar tanto la estructura del código como las prácticas de diseño de datos, tipado estricto, optimización del renderizado y organización de componentes reutilizables en un entorno realista.",
-    image:
-      "/projects/personales/hard360/hard360-1.webp",
+    image: "/projects/personales/hard360/hard360-1.webp",
     images: [
       "/projects/personales/hard360/hard360-1.webp",
       "/projects/personales/hard360/hard360-2.webp",
