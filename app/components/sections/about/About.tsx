@@ -4,7 +4,7 @@ export const About = () => {
   return (
     <div className="flex flex-col gap-12">
       <Title title="Sobre Mí" description="" />
-      <p className="text-text-muted text-lg">
+      {/* <p className="text-text-muted text-lg">
         ¡Hola! Soy Eduardo Viana, <strong>Analista de Sistemas</strong> recibido de la
         Institución Cervantes. Desde muy joven me interesé por la informática,
         empezando por el{" "}
@@ -77,6 +77,26 @@ export const About = () => {
         <strong>claras, ordenadas y sostenibles en el tiempo</strong>, pero
         también con <strong>actitud, compañerismo</strong> y{" "}
         <strong>ganas de seguir aprendiendo siempre</strong>.
+      </p> */}
+      <p className="text-text-muted text-lg">
+        Soy <strong>Analista de Sistemas</strong> con foco en desarrollo web
+        moderno, especializado en <strong>React y Next.js</strong>. Trabajo con
+        <strong> TypeScript</strong>, aplicando buenas prácticas de
+        arquitectura, separación de responsabilidades y código mantenible
+        orientado a producción.
+        <br />
+        <br />
+        Si bien mi principal fortaleza está en el <strong>frontend</strong>,
+        también he asumido responsabilidades de <strong>backend</strong> en
+        proyectos reales, diseñando APIs, modelando dominio y trabajando con
+        bases de datos. Esto me permitió desarrollar una visión más integral del
+        ciclo completo del software.
+        <br />
+        <br />
+        Me interesa construir soluciones claras, sostenibles y bien
+        estructuradas. Valoro el trabajo en equipo, la documentación y la mejora
+        continua como pilares para desarrollar productos sólidos en entornos
+        profesionales.
       </p>
     </div>
   );

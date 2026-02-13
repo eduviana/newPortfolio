@@ -3,7 +3,7 @@ export const projects = [
     id: 27,
     title: "Medical Healt",
     slug: "medical-healt",
-    liveSiteUrl: "https://hard360.vercel.app",
+    
     githubUrl: "https://github.com/eduviana/hard360",
     desc: "Sistema web de gestión de turnos - Obra Social",
     explanation:

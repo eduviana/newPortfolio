@@ -33,7 +33,7 @@ export const MyProjects = () => {
     <div className="my-48" id="my-projects">
       <Title
         title="Mis Proyectos"
-        description="Lorem ipsum dolor sit amet consectetur. Mollis erat duis aliquam mauris est risus lectus. Phasellus consequat urna tellus"
+        description=""
       />
       <FilterButtons
         selectedFilter={selectedFilter}

@@ -10,7 +10,6 @@ export default function ProjectDetailsPage() {
   const pathname = usePathname();
   const slug = pathname.split("/").filter(Boolean).pop(); // ej: "vivarium"
   const project = getProjectBySlug(slug || "");
-  
 
   if (!project) return <h1>Proyecto no encontrado</h1>;
 
@@ -61,14 +60,16 @@ export default function ProjectDetailsPage() {
           <div className="flex flex-col items-center gap-2 md:items-start">
             <h4 className="text-lg font-semibold md:hidden">Links</h4>
             <div className="flex items-center gap-6 justify-center md:justify-start">
-              <a
-                href={liveSiteUrl}
-                className="bg-brand-primary text-text-base py-1 px-4 lg:py-2 lg:px-4 rounded-md capitalize hover:bg-brand-hover transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ver sitio
-              </a>
+              {liveSiteUrl && (
+                <a
+                  href={liveSiteUrl}
+                  className="bg-brand-primary text-text-base py-1 px-4 lg:py-2 lg:px-4 rounded-md capitalize hover:bg-brand-hover transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver sitio
+                </a>
+              )}
               <a
                 href={githubUrl}
                 className="bg-brand-primary text-text-base py-1 px-4 lg:py-2 lg:px-4 rounded-md capitalize hover:bg-brand-hover transition-colors duration-300"
